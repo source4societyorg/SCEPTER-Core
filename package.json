@@ -11,7 +11,7 @@
     "url": ""
   },
   "author": "Source for Society",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "eslint": "^4.10.0",
     "serverless": "^1.24.0"
