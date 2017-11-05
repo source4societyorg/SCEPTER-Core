@@ -10,17 +10,19 @@ Under construction
 
 Add credentials.json to your config file. Here is an example setup for AWS:
 
-	{
-		"environments": {
-			"dev": {
-				"provider": "aws",
-				"keys": {
-					"awsKey": "AKIAJGEXAMPLEKEY",
-					"secret": "VrPdLEXAMPLESECRET"
-				}           
-			}
-		}
-	}
+    {
+        "environments": {
+            "dev": {
+                "provider": "aws",
+                "configuration": { 
+                    "accessKeyId": "AKIAJGTEST",
+                    "secretAccessKey": "VrPdLiTEST",
+                    "region":"us-east-1",
+                    "maxRetries":2
+                }
+            }
+        }
+    }
 
 This file will be ignored by git
 
