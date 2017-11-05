@@ -1,0 +1,26 @@
+{
+  "name": "scepter-core",
+  "version": "1.0.0",
+  "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint services"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Source for Society",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "eslint": "^4.10.0",
+    "serverless": "^1.24.0"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
