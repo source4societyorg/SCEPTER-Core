@@ -63,7 +63,16 @@ function createService (args) {
   });
   process.on('exit', function (code, signal) {
     if(code == 0) {
-      console.log('Created service ' + serviceName);
+      const gitprocess = exec('cd ' + serviceName + '; git init');
+      gitprocess.stderr.on('data', function (data) {
+          console.log(data);
+      });
+
+      gitprocess.on('exit', function (code, signal) {        
+          if(code == 0) { 
+              console.log('Created service ' + serviceName);
+          }
+      });
     }
   });
 }
