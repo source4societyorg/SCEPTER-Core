@@ -28,9 +28,9 @@ if (args.length > 2) {
 
 function configureCloud (args) {
   const provider = credentials.environments[args[3]].provider
-  const keys = credentials.environments[args[3]].keys
+  const configuration = credentials.environments[args[3]].configuration
 
-  const process = exec('./node_modules/.bin/sls config credentials --provider ' + provider + ' --key ' + keys.awsKey + ' --secret ' + keys.awsSecret)
+  const process = exec('./node_modules/.bin/sls config credentials --provider ' + provider + ' --key ' + configuration.accessKeyId + ' --secret ' + configuration.secretAccessKey)
   process.stderr.on('data', function (data) {
       console.log(data);
   });
