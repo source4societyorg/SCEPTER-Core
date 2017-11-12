@@ -1,4 +1,4 @@
 credentials.json
-services
-node_modules
-assets
+/services
+/node_modules
+/assets
