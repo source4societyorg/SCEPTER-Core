@@ -6,6 +6,16 @@ To setup, clone this repository onto your machine and run `yarn install`.
 
 Under construction
 
+Contributors welcome! Email accounts@source4society.org for questions about how to contribute.
+
+## System Requirements
+
+Currently this project is being developed on Ubuntu 16.04. We would like to eventually support a wider number of systems and contributions to this effect are welcome.
+
+Due to limitations at the cloud providers, we are limited to `nodejs v6.10`. We reccommend using [nvm](https://github.com/creationix/nvm) to switch between different versions of nodejs on your machine.
+
+We also rely on [yarn](https://yarnpkg.com/en/) currently, but will plan on dropping down to pure npm and possibly support other package managers in the future.
+
 ## Credentials
 
 Add credentials.json to your config file. Here is an example setup for AWS:
