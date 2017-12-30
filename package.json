@@ -4,7 +4,7 @@
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/eslint services"
+    "test": "yarn eslint ./commands/**/*.js ./services/**/**/*.js ./ui/**/**/*.js && yarn jest ./commands/**/**/*.js ./services/**/**/*.js ./ui/**/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
     "@source4society/scepter-dynamodb-lib": "^0.0.1",
     "aws-sdk": "^2.149.0",
     "eslint": "^4.10.0",
+    "jest-cli": "^22.0.4",
     "mime-types": "^2.1.17",
     "serverless": "^1.24.0"
   },

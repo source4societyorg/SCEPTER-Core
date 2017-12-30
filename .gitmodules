@@ -1,3 +1,12 @@
 [submodule "commands/ui"]
 	path = commands/ui
-	url = git@github.com:source4societyorg/SCEPTER-command-ui.git
+	url = https://github.com/source4societyorg/SCEPTER-command-ui
+[submodule "commands/list"]
+	path = commands/list
+	url = https://github.com/source4societyorg/SCEPTER-command-list
+[submodule "commands/service"]
+	path = commands/service
+	url = https://github.com/source4societyorg/SCEPTER-command-service
+[submodule "commands/cloud"]
+	path = commands/cloud
+	url = https://github.com/source4societyorg/SCEPTER-command-cloud

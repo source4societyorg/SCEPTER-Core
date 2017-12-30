@@ -36,16 +36,16 @@ class Command {
     }
   }
 
-  listCommands() {
-    if(this.commands.length < 1) {
-       console.log('There are no commands attached')
+  listCommands () {
+    if (this.commands.length < 1) {
+      console.log('There are no commands attached')
     } else {
-        console.log('SCEPTER Commands:');
-        console.log('=============================');
-        for(var index = 0; index < this.commands.length; index++) {
-            console.log(this.commands[index].usage + ' - ' + (this.commands[index].description || 'no description provided') + "\n")         
-        }
-        console.log('=============================');
+      console.log('SCEPTER Commands:')
+      console.log('=============================')
+      for (var index = 0; index < this.commands.length; index++) {
+        console.log(this.commands[index].usage + ' - ' + (this.commands[index].description || 'no description provided') + '\n')
+      }
+      console.log('=============================')
     }
   }
 
@@ -59,7 +59,7 @@ class Command {
       const files = fs.readdirSync(directories[i])
       for (var a = 0; a < files.length; a++) {
         var file = files[a]
-        if(file.indexOf('.js') !== -1) {
+        if (file.indexOf('.js') !== -1 && file.indexOf('.json') === -1) {
           var requirePath = directories[i] + '/' + file
           var command = require(requirePath)
           this.commands.push(command)
@@ -79,23 +79,23 @@ class Command {
       .filter(this.isDirectory)
   }
 
-  executeCommand(commandString, successMessage, failureMessage, successCallback, failureCallback) {
+  executeCommand (commandString, successMessage, failureMessage, successCallback, failureCallback) {
     const self = this
     const process = exec(commandString)
     process.stderr.on('data', (data) => self.printMessage(data))
     process.stdout.on('data', (data) => self.printMessage(data))
     process.on('exit', (code, signal) => {
-        if(0 === code) {
-            self.printMessage(successMessage)
-            if(typeof successCallback !== 'undefined') {
-                successCallback(self)
-            }
-        } else {
-            self.printMessage(failureMessage)
-            if(typeof failureCallback !== 'undefined') {
-                failureCallback(self)
-            }
+      if (code === 0) {
+        self.printMessage(successMessage)
+        if (typeof successCallback !== 'undefined') {
+          successCallback(self)
         }
+      } else {
+        self.printMessage(failureMessage)
+        if (typeof failureCallback !== 'undefined') {
+          failureCallback(self)
+        }
+      }
     })
   }
 
