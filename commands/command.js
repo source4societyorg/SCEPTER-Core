@@ -40,9 +40,12 @@ class Command {
     if(this.commands.length < 1) {
        console.log('There are no commands attached')
     } else {
+        console.log('SCEPTER Commands:');
+        console.log('=============================');
         for(var index = 0; index < this.commands.length; index++) {
-            console.log(this.commands[index].usage + ' - ' + (this.commands[index].description || 'no description provided'))         
+            console.log(this.commands[index].usage + ' - ' + (this.commands[index].description || 'no description provided') + "\n")         
         }
+        console.log('=============================');
     }
   }
 
@@ -56,9 +59,11 @@ class Command {
       const files = fs.readdirSync(directories[i])
       for (var a = 0; a < files.length; a++) {
         var file = files[a]
-        var requirePath = directories[i] + '/' + file
-        var command = require(requirePath)
-        this.commands.push(command)
+        if(file.indexOf('.js') !== -1) {
+          var requirePath = directories[i] + '/' + file
+          var command = require(requirePath)
+          this.commands.push(command)
+        }
       }
     }
   }

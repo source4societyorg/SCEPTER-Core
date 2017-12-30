@@ -1,0 +1,3 @@
+[submodule "commands/ui"]
+	path = commands/ui
+	url = git@github.com:source4societyorg/SCEPTER-command-ui.git
