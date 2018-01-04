@@ -64,21 +64,21 @@ To get started, you will need to add `credentials.json` to your config folder. T
 
 Here is an example setup for Azure. You may need to review the [Serverless.com Azure Credentials Guide](https://serverless.com/framework/docs/providers/azure/guide/credentials/) to determine how to obtain these values.
 
-{
-    "environments": {
-        "dev": {
-            "provider": "azure",
-            "configuration": {
-                "subscriptionId": "aaaaa-aaaa-1111-11b1-111111111111",
-                "appId": "aaaaa-aaaa-1111-11b1-111111111111",
-                "displayName": "azure-cli-2099-12-01",
-                "tenantId": "aaaaa-aaaa-1111-11b1-111111111111",
-                "clientId": "http://azure-cli-2099-12-31-12",
-                "password": "aaaaa-aaaa-1111-11b1-111111111111"
+    {
+        "environments": {
+            "dev": {
+                "provider": "azure",
+                "configuration": {
+                    "subscriptionId": "aaaaa-aaaa-1111-11b1-111111111111",
+                    "appId": "aaaaa-aaaa-1111-11b1-111111111111",
+                    "displayName": "azure-cli-2099-12-01",
+                    "tenantId": "aaaaa-aaaa-1111-11b1-111111111111",
+                    "clientId": "http://azure-cli-2099-12-31-12",
+                    "password": "aaaaa-aaaa-1111-11b1-111111111111"
+                }
             }
         }
     }
-}
 
 This file will be ignored by git as specified in .gitignore to prevent committing sensitive information to your repository.
 
