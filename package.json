@@ -1,10 +1,10 @@
 {
   "name": "@source4societyorg/scepter-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "yarn eslint ./commands/**/*.js ./services/**/**/*.js ./ui/**/**/*.js && yarn jest ./commands/**/**/*.js ./services/**/**/*.js ./ui/**/**/*.js"
+    "test": "eslint ./**/*.js --ignore-path .gitignore && jest ./commands/**/**/*.js ./services/**/**/*.js ./ui/**/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,6 @@
   "author": "Source for Society",
   "license": "MIT",
   "dependencies": {
-    "@source4society/scepter-dynamodb-lib": "^0.0.1",
     "aws-sdk": "^2.149.0",
     "eslint": "^4.10.0",
     "jest-cli": "^22.0.4",
@@ -23,6 +22,7 @@
   "devDependencies": {
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1"

@@ -1,6 +1,7 @@
 'use strict'
 const fs = require('fs')
 const path = require('path')
+const optionalRequire = require('optional-require')(require)
 const credentials = require('../config/credentials.json')
 const { exec } = require('child_process')
 
@@ -12,6 +13,7 @@ class Command {
     this.events = require('events')
     this.eventEmitter = new this.events.EventEmitter()
     this.eventEmitter.emit('commands.initialize')
+    this.parameters = optionalRequire('../config/parameters.json') || { shell: 'bash' }
     this.loadCommands()
   }
 
@@ -81,7 +83,17 @@ class Command {
 
   executeCommand (commandString, successMessage, failureMessage, successCallback, failureCallback) {
     const self = this
-    const process = exec(commandString)
+    let process
+
+    switch (this.parameters.shell) {
+      case 'powershell':
+        process = exec('powershell.exe -Command ' + commandString)
+        break
+      case 'bash':
+      default:
+        process = exec(commandString)
+    }
+
     process.stderr.on('data', (data) => self.printMessage(data))
     process.stdout.on('data', (data) => self.printMessage(data))
     process.on('exit', (code, signal) => {
