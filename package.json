@@ -4,7 +4,7 @@
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./**/*.js --ignore-path .gitignore && jest ./commands/**/**/*.js ./services/**/**/*.js ./ui/**/**/*.js"
+    "test": "eslint ./**/*.js --ignore-path .gitignore && jest"
   },
   "repository": {
     "type": "git",

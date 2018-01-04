@@ -8,29 +8,45 @@
 
 This is the core SCEPTER application and base for starting your projects using the SCEPTER framework
 
-To setup, fork this repository and then clone onto your machine, then run `yarn install`. We recommend using the --recursive flag. Alternatively you can clone the repository directly and then change the remote to point to your (empty) project repository. Here is an example:
-
-  git clone git@github.com:source4societyorg/SCEPTER-Core --recursive
-
-If you do not use the `--recursive` flag, be sure to run `git submodule update --init` to clone the submodule repositories.
-
 Contributors welcome! Email accounts@source4society.org for questions about how to contribute.
+
+## Why SCEPTER?
+
+SCEPTER is useful for organizing various micro-services and user interfaces within and across projects. The goal of the SCEPTER is to provide a framework for quickly setting up modern applications of any type based on a serverless architecture while promoting modularity and service reuse.
+
+SCEPTER depends heavily on [Serverless.com](Serverless.com) for rapid cross-service setup and deployment, as well as production ready boilerplate code such as [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). SCEPTER commands are designed to simplify the coordinated deployment of these services and user interfaces as well as try to ease some of the difficulties of working with `git submodules`
 
 ## System Requirements
 
-Currently this project is being developed on Ubuntu 16.04. We would like to eventually support a wider number of systems and contributions to this effect are welcome.
+Currently this project has been tested primarily with /bin/bash for Ubuntu 16.04 and powershell for Windows 10. We would like to eventually support a wider number of systems and contributions to this effect are welcome.
 
-Due to limitations at the cloud providers, we are limited to `nodejs v6.10`. We reccommend using [nvm](https://github.com/creationix/nvm) to switch between different versions of nodejs on your machine.
+`git` at least version 1.9 should be installed, as well as `yarn`.
 
-We also rely on [yarn](https://yarnpkg.com/en/) currently, but will plan on dropping down to pure npm and possibly support other package managers in the future.
+See the [Serverless framework](https://serverless.com) provider specific limitations for which version of nodejs to install as different providers have different limitations. We recommend using [nvm](https://github.com/creationix/nvm) to switch between different versions of nodejs on your machine if you can.
 
 It is also a good idea to familiarize yourself with [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) as the framework relies heavily on them, although much effort has been made to simplify some of the submodule commands.
 
 This project makes use of the [Serverless Framework](http://serverless.com)
 
+## Setup
+
+To setup, fork this repository and then clone onto your machine. We recommend using the --recursive flag. Alternatively you can clone the repository directly and then change the remote to point to your (empty) project repository. Here is an example:
+
+  git clone git@github.com:source4societyorg/SCEPTER-Core --recursive
+
+If you do not use the `--recursive` flag, be sure to run `git submodule update --init` to clone the submodule repositories. This will pull down the default commands. Once your project is setup, run `yarn install` to pull node dependencies and `yarn test` for good measure.
+
+Start by creating a `credentials.json` in your `config` folder. 
+
+If you are using powershell, add a `parameters.json` file to the config folder with the following setup:
+
+    {
+        "shell": "powershell"
+    }
+
 ## Credentials
 
-To get started, you will need to add credentials.json to your config folder. These should not be checked into your project repository as they contain sensitive information. Here is an example setup for AWS:
+To get started, you will need to add `credentials.json` to your config folder. These should not be checked into your project repository as they contain sensitive information. You may need to review the [Serverless.com AWS Credentials Guide](https://serverless.com/framework/docs/providers/aws/guide/credentials/) to learn how to obtain these credentials. Here is an example setup for AWS:
 
     {
         "environments": {
@@ -46,11 +62,31 @@ To get started, you will need to add credentials.json to your config folder. The
         }
     }
 
-This file will be ignored by git as specified in .gitignore
+Here is an example setup for Azure. You may need to review the [Serverless.com Azure Credentials Guide](https://serverless.com/framework/docs/providers/azure/guide/credentials/) to determine how to obtain these values.
+
+{
+    "environments": {
+        "dev": {
+            "provider": "azure",
+            "configuration": {
+                "subscriptionId": "aaaaa-aaaa-1111-11b1-111111111111",
+                "appId": "aaaaa-aaaa-1111-11b1-111111111111",
+                "displayName": "azure-cli-2099-12-01",
+                "tenantId": "aaaaa-aaaa-1111-11b1-111111111111",
+                "clientId": "http://azure-cli-2099-12-31-12",
+                "password": "aaaaa-aaaa-1111-11b1-111111111111"
+            }
+        }
+    }
+}
+
+This file will be ignored by git as specified in .gitignore to prevent committing sensitive information to your repository.
+
+Once you have setup your environments, be sure to use the `node bin/scepter.js cloud:configure` command to set your credentials to point to the `dev` environment by default. 
 
 ## Commands
 
-Use the following commands to get started with your project:
+Use the following commands to get started with your project. These commands are pulled into your project by default as part of the SCEPTER framework, and custom command plugins can be created as well:
 
 The command engine allows for the creation of custom plugins. 
 
