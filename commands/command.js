@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const optionalRequire = require('optional-require')(require)
 const credentials = require('../config/credentials.json')
-const { exec } = require('child_process')
+const { spawn } = require('child_process')
 
 class Command {
   constructor () {
@@ -83,20 +83,20 @@ class Command {
 
   executeCommand (commandString, successMessage, failureMessage, successCallback, failureCallback) {
     const self = this
-    let process
+    let child
 
     switch (this.parameters.shell) {
       case 'powershell':
-        process = exec('powershell.exe -Command ' + commandString)
+        child = spawn('powershell.exe -Command ' + commandString, {stdio: 'inherit', shell: true})
         break
       case 'bash':
       default:
-        process = exec(commandString)
+        child = spawn(commandString, {stdio: 'inherit', shell: true})
     }
 
-    process.stderr.on('data', (data) => self.printMessage(data))
-    process.stdout.on('data', (data) => self.printMessage(data))
-    process.on('exit', (code, signal) => {
+    // child.stderr.on('data', (data) => self.printMessage(data))
+    // child.stdout.on('data', (data) => self.printMessage(data))
+    child.on('close', (code, signal) => {
       if (code === 0) {
         self.printMessage(successMessage)
         if (typeof successCallback !== 'undefined') {

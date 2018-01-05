@@ -1,10 +1,11 @@
 {
   "name": "@source4societyorg/scepter-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./**/*.js --ignore-path .gitignore && jest"
+    "test": "eslint ./**/*.js --ignore-path .gitignore && jest",
+    "scepter": "node bin/scepter.js"
   },
   "repository": {
     "type": "git",
