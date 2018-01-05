@@ -17,6 +17,7 @@
     "eslint": "^4.10.0",
     "jest-cli": "^22.0.4",
     "mime-types": "^2.1.17",
+    "optional-require": "^1.0.0",
     "serverless": "^1.24.0"
   },
   "devDependencies": {
