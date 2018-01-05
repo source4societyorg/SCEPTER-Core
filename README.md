@@ -32,7 +32,7 @@ This project makes use of the [Serverless Framework](http://serverless.com)
 
 To setup, fork this repository and then clone onto your machine. We recommend using the --recursive flag. Alternatively you can clone the repository directly and then change the remote to point to your (empty) project repository. Here is an example:
 
-  git clone git@github.com:source4societyorg/SCEPTER-Core --recursive
+  git clone --branch 1.0.2 git@github.com:source4societyorg/SCEPTER-Core --recursive
 
 If you do not use the `--recursive` flag, be sure to run `git submodule update --init` to clone the submodule repositories. This will pull down the default commands. Once your project is setup, run `yarn install` to pull node dependencies and `yarn test` for good measure.
 

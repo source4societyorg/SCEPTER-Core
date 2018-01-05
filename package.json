@@ -1,6 +1,6 @@
 {
   "name": "@source4societyorg/scepter-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
