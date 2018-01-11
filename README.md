@@ -28,6 +28,10 @@ It is also a good idea to familiarize yourself with [Git Submodules](https://git
 
 This project makes use of the [Serverless Framework](http://serverless.com)
 
+If you are running the commands via powershell, be sure to install the windows-build-tools with the following command:
+
+    npm install --global --production windows-build-tools
+
 ## Setup
 
 To setup, fork this repository and then clone onto your machine. We recommend using the --recursive flag. Alternatively you can clone the repository directly and then change the remote to point to your (empty) project repository. Here is an example:
