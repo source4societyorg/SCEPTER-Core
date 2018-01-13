@@ -4,7 +4,7 @@ const path = require('path')
 const optionalRequire = require('optional-require')(require)
 const credentials = optionalRequire('../config/credentials.json') || {}
 const { spawn } = require('child_process')
-const readlineModule = require('readline');
+const readlineModule = require('readline')
 const immutable = require('immutable')
 
 class Command {
@@ -17,8 +17,8 @@ class Command {
     this.eventEmitter.emit('commands.initialize')
     this.parameters = optionalRequire('../config/parameters.json') || { shell: 'bash' }
     this.services = optionalRequire('../config/services.json') || {}
-    this.configuration = immutable.fromJS(Object.assign(credentials, { parameters: this.parameters }, { services: this.services } ))
-    this.inputs = {}   
+    this.configuration = immutable.fromJS(Object.assign(credentials, { parameters: this.parameters }, { services: this.services }))
+    this.inputs = {}
     this.loadCommands()
   }
 
@@ -56,21 +56,21 @@ class Command {
     }
   }
 
-  prepareToReceiveInput() {
+  prepareToReceiveInput () {
     this.readline = readlineModule.createInterface({
       input: process.stdin,
       output: process.stdout
-    }); 
+    })
   }
 
-  readInput(key, question, callback) {
+  readInput (key, question, callback) {
     this.readline.question(question, (answer) => {
       this.inputs[key] = answer
       callback(answer)
     })
   }
 
-  closeInputStream() {
+  closeInputStream () {
     this.readline.close()
   }
 
