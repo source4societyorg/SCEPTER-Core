@@ -12,7 +12,7 @@ Contributors welcome! Email accounts@source4society.org for questions about how 
 
 ## Why SCEPTER?
 
-SCEPTER is useful for organizing various micro-services and user interfaces within and across projects. The goal of the SCEPTER is to provide a framework for quickly setting up modern applications of any type based on a serverless architecture while promoting modularity and service reuse.
+SCEPTER is useful for organizing various micro-services and user interfaces within and across projects. The goal of  SCEPTER is to provide a framework for quickly setting up modern applications of any type based on a serverless architecture while promoting modularity and service reuse. While using SCEPTER, it may be possible to deploy to multiple cloud service providers with a single command.
 
 SCEPTER depends heavily on [Serverless.com](Serverless.com) for rapid cross-service setup and deployment, as well as production ready boilerplate code such as [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). SCEPTER commands are designed to simplify the coordinated deployment of these services and user interfaces as well as try to ease some of the difficulties of working with `git submodules`
 
@@ -40,53 +40,9 @@ To setup, fork this repository and then clone onto your machine. We recommend us
 
 If you do not use the `--recursive` flag, be sure to run `git submodule update --init` to clone the submodule repositories. This will pull down the default commands. Once your project is setup, run `yarn install` to pull node dependencies and `yarn test` for good measure.
 
-Start by creating a `credentials.json` in your `config` folder. 
+Start by running the `node bin/scepter project:initialize` command to setup your project configuration which will be centralized in the `config` directory. You can replace `node bin/scepter` with `yarn scepter` for simplicity.
 
-If you are using powershell, add a `parameters.json` file to the config folder with the following setup:
-
-    {
-        "shell": "powershell"
-    }
-
-## Credentials
-
-To get started, you will need to add `credentials.json` to your config folder. These should not be checked into your project repository as they contain sensitive information. You may need to review the [Serverless.com AWS Credentials Guide](https://serverless.com/framework/docs/providers/aws/guide/credentials/) to learn how to obtain these credentials. Here is an example setup for AWS:
-
-    {
-        "environments": {
-            "dev": {
-                "provider": "aws",
-                "configuration": { 
-                    "accessKeyId": "AKIAJGTEST",
-                    "secretAccessKey": "VrPdLiTEST",
-                    "region":"us-east-1",
-                    "maxRetries":2
-                }
-            }
-        }
-    }
-
-Here is an example setup for Azure. You may need to review the [Serverless.com Azure Credentials Guide](https://serverless.com/framework/docs/providers/azure/guide/credentials/) to determine how to obtain these values.
-
-    {
-        "environments": {
-            "dev": {
-                "provider": "azure",
-                "configuration": {
-                    "subscriptionId": "aaaaa-aaaa-1111-11b1-111111111111",
-                    "appId": "aaaaa-aaaa-1111-11b1-111111111111",
-                    "displayName": "azure-cli-2099-12-01",
-                    "tenantId": "aaaaa-aaaa-1111-11b1-111111111111",
-                    "clientId": "http://azure-cli-2099-12-31-12",
-                    "password": "aaaaa-aaaa-1111-11b1-111111111111"
-                }
-            }
-        }
-    }
-
-This file will be ignored by git as specified in .gitignore to prevent committing sensitive information to your repository.
-
-Once you have setup your environments, be sure to use the `node bin/scepter.js cloud:configure` command to set your credentials to point to the `dev` environment by default. 
+At this point, you can start by developing the services and user interfaces associated with your project. Some useful commands can be found below:
 
 ## Commands
 
@@ -98,17 +54,13 @@ The command engine allows for the creation of custom plugins.
 
 See [SCEPTER-command-list](https://github.com/source4societyorg/SCEPTER-command-list) This command will list all of the installed commands and print out their description/usage instructions
 
-    node ./bin/scepter.js configure:cloud [<environment>]
-
-See  [SCEPTER-command-cloud](https://github.com/source4societyorg/SCEPTER-command-cloud) This command will set the serverless application to use your development credentials
-
     node ./bin/scepter.js ui:initializeWebUi
 
 See  [SCEPTER-command-ui](https://github.com/source4societyorg/SCEPTER-command-ui) This command will clone the SCEPTER fork [SCEPTER-webui](https://github.com/source4societyorg/SCEPTER-webui) of the [react-boilerplate/react-boilerplate](https://github.com/react-boilerplate/react-boilerplate) template and save it in your ui folder, then pull down and build dependencies. Useful with the `ui:webDeployS3` command
 
     node ./bin/scepter.js service:create
 
-See  [SCEPTER-command-service](https://github.com/source4societyorg/SCEPTER-command-service) This command will automatically generate a new repository with the specified serverless template in the services folder.
+See  [SCEPTER-command-service](https://github.com/source4societyorg/SCEPTER-command-service) This command will automatically generate a new service submodule forked from the [SCEPTER-services-template](https://github.com/source4societyorg/SCEPTER-service-template) boilerplate which includes default configuration for universal provider deployment.
 
 ## Services
 
@@ -118,3 +70,4 @@ A few services already made that will likely be useful for your application:
 
   [SCEPTER-AuthenticationService](https://github.com/source4societyorg/SCEPTER-AuthenticationService) - Provides a service for authenticating users.
 
+Simply create a new repository and run the `node ./bin/scepter.js service:add` command to fork these services into your project.

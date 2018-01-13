@@ -2,8 +2,10 @@
 const fs = require('fs')
 const path = require('path')
 const optionalRequire = require('optional-require')(require)
-const credentials = require('../config/credentials.json')
+const credentials = optionalRequire('../config/credentials.json')
 const { spawn } = require('child_process')
+const readlineModule = require('readline');
+const immutable = require('immutable')
 
 class Command {
   constructor () {
@@ -14,6 +16,9 @@ class Command {
     this.eventEmitter = new this.events.EventEmitter()
     this.eventEmitter.emit('commands.initialize')
     this.parameters = optionalRequire('../config/parameters.json') || { shell: 'bash' }
+    this.services = optionalRequire('../config/services.json') || {}
+    this.configuration = immutable.fromJS(Object.assign(credentials, { parameters: this.parameters }, { services: this.services } ))
+    this.inputs = {}   
     this.loadCommands()
   }
 
@@ -28,7 +33,7 @@ class Command {
       }
 
       if (commandIndex !== false) {
-        this.commands[commandIndex].callback(args, credentials, this)
+        this.commands[commandIndex].callback(args, this.configuration, this)
       } else {
         console.log('Command not found: ' + args[2])
         console.log('List available commands: node bin/scepter list:all')
@@ -49,6 +54,24 @@ class Command {
       }
       console.log('=============================')
     }
+  }
+
+  prepareToReceiveInput() {
+    this.readline = readlineModule.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    }); 
+  }
+
+  readInput(key, question, callback) {
+    this.readline.question(question, (answer) => {
+      this.inputs[key] = answer
+      callback(answer)
+    })
+  }
+
+  closeInputStream() {
+    this.readline.close()
   }
 
   processError (data) {

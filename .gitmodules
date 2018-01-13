@@ -10,3 +10,6 @@
 [submodule "commands/cloud"]
 	path = commands/cloud
 	url = https://github.com/source4societyorg/SCEPTER-command-cloud
+[submodule "commands/project"]
+	path = commands/project
+	url = git@github.com:source4societyorg/SCEPTER-command-project.git
