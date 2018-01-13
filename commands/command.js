@@ -2,7 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const optionalRequire = require('optional-require')(require)
-const credentials = optionalRequire('../config/credentials.json')
+const credentials = optionalRequire('../config/credentials.json') || {}
 const { spawn } = require('child_process')
 const readlineModule = require('readline');
 const immutable = require('immutable')
