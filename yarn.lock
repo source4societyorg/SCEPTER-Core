@@ -18,6 +18,10 @@
     ramda "^0.24.1"
     url-parse "^1.1.9"
 
+"@source4society/scepter-utility-lib@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@source4society/scepter-utility-lib/-/scepter-utility-lib-0.0.7.tgz#7401311ebceb39f56b253f3cc76c2bebae89367d"
+
 "@types/graphql@0.10.2":
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.10.2.tgz#d7c79acbaa17453b6681c80c34b38fcb10c4c08c"
