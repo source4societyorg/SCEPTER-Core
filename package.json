@@ -1,10 +1,10 @@
 {
   "name": "@source4societyorg/scepter-core",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./**/*.js --ignore-path .gitignore && jest",
+    "test": "eslint ./**/*.js --ignore-path .gitignore && jest --coverage",
     "scepter": "node bin/scepter.js"
   },
   "repository": {
@@ -14,12 +14,10 @@
   "author": "Source for Society",
   "license": "MIT",
   "dependencies": {
-    "@source4society/scepter-utility-lib": "^0.0.7",
-    "aws-sdk": "^2.149.0",
+    "@source4society/scepter-utility-lib": "^0.0.24",
     "eslint": "^4.10.0",
     "immutable": "^3.8.2",
     "jest-cli": "^22.0.4",
-    "mime-types": "^2.1.17",
     "optional-require": "^1.0.0",
     "serverless": "^1.25.0"
   },

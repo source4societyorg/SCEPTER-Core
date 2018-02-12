@@ -3,7 +3,11 @@
 [![scepter-logo](http://res.cloudinary.com/source-4-society/image/upload/v1514622047/scepter_hzpcqt.png)](https://github.com/source4societyorg/SCEPTER-core)
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 [![Build Status](https://travis-ci.org/source4societyorg/SCEPTER-Core.svg?branch=master)](https://travis-ci.org/source4societyorg/SCEPTER-Core)
+
+[![codecov](https://codecov.io/gh/source4societyorg/SCEPTER-Core/branch/master/graph/badge.svg)](https://codecov.io/gh/source4societyorg/SCEPTER-Core)
+
 [![Serverless](http://public.serverless.com/badges/v1.svg)](http://serverless.com)
 
 This is the core SCEPTER application and base for starting your projects using the SCEPTER framework
@@ -61,6 +65,10 @@ See  [SCEPTER-command-ui](https://github.com/source4societyorg/SCEPTER-command-u
     node ./bin/scepter.js service:create
 
 See  [SCEPTER-command-service](https://github.com/source4societyorg/SCEPTER-command-service) This command will automatically generate a new service submodule forked from the [SCEPTER-services-template](https://github.com/source4societyorg/SCEPTER-service-template) boilerplate which includes default configuration for universal provider deployment.
+
+    node ./bin/scepter.js service:deploy
+
+See  [SCEPTER-command-service](https://github.com/source4societyorg/SCEPTER-command-service) This command will run tests for a specific service and deploy it to a targeted cloud service provider.
 
 ## Services
 
