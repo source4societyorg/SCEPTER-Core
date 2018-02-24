@@ -18,9 +18,9 @@
     ramda "^0.24.1"
     url-parse "^1.1.9"
 
-"@source4society/scepter-utility-lib@^0.0.24":
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/@source4society/scepter-utility-lib/-/scepter-utility-lib-0.0.24.tgz#4e7fe553c7363840d3894d88cdecdc9b5a986de7"
+"@source4society/scepter-utility-lib@^9.0.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@source4society/scepter-utility-lib/-/scepter-utility-lib-1.1.0.tgz#2a5ef0ff8a499eacde477d57cef250e2501c3293"
 
 "@types/graphql@0.10.2":
   version "0.10.2"

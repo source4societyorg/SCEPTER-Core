@@ -14,10 +14,9 @@
   "author": "Source for Society",
   "license": "MIT",
   "dependencies": {
-    "@source4society/scepter-utility-lib": "^0.0.24",
+    "@source4society/scepter-utility-lib": "^1.1.0",
     "eslint": "^4.10.0",
     "immutable": "^3.8.2",
-    "jest-cli": "^22.0.4",
     "optional-require": "^1.0.0",
     "serverless": "^1.25.0",
     "yarn-recursive": "^1.0.5"
@@ -28,6 +27,7 @@
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "jest-cli": "^22.0.4"
   }
 }
