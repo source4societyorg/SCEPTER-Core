@@ -1,10 +1,10 @@
 {
   "name": "@source4societyorg/scepter-core",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "Serverless Console Environment and Portable Terminal Framework - Framework for building serverless api's and web applications",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./**/*.js --ignore-path .gitignore && jest --coverage",
+    "test": "eslint commands/**/*.js --ignore-path .gitignore && jest commands/.*\\.test\\.js --coverage",
     "scepter": "node bin/scepter.js"
   },
   "repository": {
@@ -22,11 +22,13 @@
     "yarn-recursive": "^1.0.5"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.5.0",
+    "eslint-plugin-jest": "^21.15.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest-cli": "^22.0.4"
   }
